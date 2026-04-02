@@ -1,0 +1,30 @@
+atol: 0.016
+warmup: 5
+repeat: 20
+
+decode:
+  batch_size: [1, 2, 8, 16, 32]
+  seq_len: [128, 512, 1024, 4096]
+  num_heads: [4, 8]
+  num_kv_heads: [1]
+  head_dim: [128]
+  page_size: [64]
+  # flash_attn_v4: 需 sgl-kernel 带 FA4（sgl_kernel._fa4_interface）；未安装时自动不参与
+  operators: ["hpc",  "hpc_splitk", "sgl-flash_attn", "flashinfer", "flash_attn_v4"]
+
+prefill_paged:
+  batch_size: [1, 2, 8, 16, 32]
+  seq_len: [128, 512, 1024, 4096]
+  num_heads: [4, 8]
+  num_kv_heads: [1]
+  head_dim: [128]
+  page_size: [64]
+  operators: ["hpc",  "hpc_splitk", "sgl-flash_attn", "flashinfer", "flash_attn_v4"]
+
+prefill_ragged:
+  batch_size: [1, 2, 8, 16, 32]
+  seq_len: [128, 512, 1024, 4096]
+  num_heads: [4, 8]
+  num_kv_heads: [1]
+  head_dim: [128]
+  operators: ["hpc",  "hpc_splitk", "flashinfer"]
