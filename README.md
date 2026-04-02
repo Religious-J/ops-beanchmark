@@ -1,4 +1,4 @@
-# op_benchmark
+# ops_benchmark
 
 **Attention 算子基准测试**：在统一输入与同一套参数矩阵下，对比多种实现的**数值精度**（相对朴素 PyTorch baseline）与 **GPU 延迟 / 吞吐**（TFLOPS、有效带宽），并可选导出 CSV/JSON 与折线图。
 
